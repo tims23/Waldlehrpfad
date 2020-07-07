@@ -1,0 +1,164 @@
+@import '../../defaultStyles.scss';
+
+.WelcomePopup {
+	&.Component {
+		position: absolute;
+		z-index: 3;
+		width: 100vw;
+		min-height: 200vh;
+		background-color: rgba($color: #000000, $alpha: 0.9);
+	}
+
+	&.content {
+		position: absolute;
+		width: 70vw;
+		min-height: 90vh;
+		left: 15vw;
+		top: 5vh;
+	}
+
+	h1,
+	h2,
+	h4,
+	p {
+		@include font;
+		color: $backgroundColor;
+	}
+
+	&.close {
+		position: absolute;
+		border-style: hidden;
+		background-color: rgba($color: #000000, $alpha: 0);
+		left: 32px;
+		top: 32px;
+		width: 32px;
+		height: 32px;
+		opacity: 0.5;
+		&:hover,
+		&:focus {
+			opacity: 1;
+			animation: appear 1s ease-in-out;
+		}
+	}
+
+	&.close:before,
+	.close:after {
+		left: 15px;
+		content: ' ';
+		position: absolute;
+		height: 34px;
+		width: 2px;
+		background-color: $backgroundColor;
+	}
+
+	&.close:before {
+		transform: rotate(45deg) translateY(-12px) translateX(-12px);
+	}
+
+	&.close:after {
+		transform: rotate(-45deg) translateY(-12px) translateX(12px);
+	}
+
+	&.swipingChallenge {
+		width: 100%;
+		&.swipingField {
+			margin-left: 5vw;
+			width: 50vw;
+			height: 50vh;
+			max-height: 50vw;
+			box-sizing: border-box;
+			border: solid 1px black;
+		}
+
+		@keyframes WelcomePopup-flow {
+			from {
+				transform: translateY(0%);
+			}
+			to {
+				transform: translateY(75%);
+			}
+		}
+
+		&#arrow1 {
+			opacity: 0;
+			animation-name: appear, WelcomePopup-flow;
+		}
+
+		&#arrow3 {
+			opacity: 1;
+			animation-name: disappear, WelcomePopup-flow;
+		}
+
+		h4 {
+			font-size: 35px;
+		}
+
+		&.arrow {
+			color: $articleBackgroundColor;
+			margin-top: 0;
+			margin-bottom: -10px;
+			animation-name: WelcomePopup-flow;
+			animation-duration: 1s;
+			animation-iteration-count: infinite;
+			animation-timing-function: linear;
+		}
+
+		&.scroller {
+			margin-left: auto;
+			margin-right: auto;
+			margin-top: 5vh;
+			height: 140px;
+			width: 30px;
+		}
+	}
+
+	&.next {
+		height: 50px;
+		width: 130px;
+		border-radius: 6px;
+		border: 0px;
+		box-shadow: 0 3px 5px 2px rgba(255, 105, 135, 0.3);
+		@include descale;
+
+		background: linear-gradient(45deg, #fe6b8b 30%, #ff8e53 90%);
+		&:hover,
+		&:focus {
+			background: linear-gradient(45deg, #ff8e53 30%, #fe6b8b 90%);
+			@include scale;
+		}
+
+		p {
+			margin-top: 4px;
+			margin-left: auto;
+			margin-right: auto;
+			color: $backgroundColor;
+			font-size: xx-large;
+			@include font;
+		}
+	}
+
+	&.downloadable {
+		&.placeholder {
+			float: left;
+			margin-right: 10px;
+		}
+		&.float {
+			float: left;
+			max-width: 45vw;
+		}
+		&.spaceholder {
+			float: none;
+			width: 60vw;
+			height: 30vh;
+		}
+		&.arrow-container {
+			width: 31px;
+			height: 100px;
+			float: left;
+			p {
+				margin-top: 6.5px;
+				margin-bottom: 6.5px;
+			}
+		}
+	}
+}

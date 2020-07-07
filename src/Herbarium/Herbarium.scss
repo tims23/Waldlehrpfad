@@ -1,0 +1,150 @@
+@import "../defaultStyles.scss";
+
+.Herbarium {
+	&.Component {
+	}
+
+	button {
+		height: 30px;
+		width: 80px;
+		border-radius: 6px;
+		border: 0px;
+		background: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+		box-shadow: 0 0 10px lightgrey;
+		color: black;
+		font-size: small;
+		@include font;
+
+		&:hover,
+		&:focus {
+			color: $articleBackgroundColor;
+			background: $reversedRedGradient;
+		}
+	}
+
+	hr {
+		border: none;
+		height: 1px;
+		border-radius: 40px;
+	}
+
+	&.Element {
+		box-sizing: border-box;
+		&.Container {
+			perspective: 1000px;
+			float: left;
+			width: 200px;
+			height: 300px;
+			margin: 5vw;
+		}
+
+		&.Container:hover &.inner {
+			transform: rotateY(180deg);
+		}
+
+		&.Container:hover h1 {
+			@include flowInRight();
+		}
+
+		&.Container:hover button {
+			@include flowInRight();
+		}
+
+		&.inner {
+			width: 100%;
+			height: 100%;
+			border-radius: 40px;
+			background-color: $articleBackgroundColor;
+			box-shadow: 0 0 10px lightgrey;
+			transition: transform 0.8s;
+			transform-style: preserve-3d;
+		}
+
+		img {
+			width: 100%;
+		}
+
+		&.front,
+		&.back {
+			border-radius: 40px;
+			position: absolute;
+			padding: 2vw;
+			width: 100%;
+			height: 100%;
+			backface-visibility: hidden;
+		}
+
+		&.back {
+			transform: rotateY(180deg);
+		}
+
+		&.overlay {
+			padding: 2vw;
+			border-radius: 40px;
+			width: 200px;
+			height: 300px;
+			position: absolute;
+			top: 0;
+			left: 0;
+			background-color: rgba($color: #000000, $alpha: 0.7);
+		}
+
+		h1 {
+			text-align: center;
+			@include font();
+			color: $articleBackgroundColor;
+		}
+
+		button {
+			margin-top: 30%;
+			margin-left: calc(100px - 40px - 2vw);
+		}
+	}
+
+	&.DetailView {
+		&.Funktion {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100vw;
+			min-height: 100vh;
+			background-color: rgba($color: #000000, $alpha: 0.7);
+		}
+		button {
+			margin-top: 10px;
+			margin-left: 10px;
+		}
+		&.contend {
+			animation: Herbarium-slideup 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) both, appear 0.5s ease-in-out both;
+			@keyframes Herbarium-slideup {
+				from {
+					transform: translateY(-100%);
+				}
+				to {
+					transform: translateY(0%);
+				}
+			}
+			@media (min-width: 700px) {
+				width: 70%;
+				margin-left: 50% - 35%;
+			}
+
+			@media (max-width: 699px) {
+				width: 90%;
+				margin-left: 50% - 45%;
+			}
+			box-sizing: border-box;
+			padding: 2vw;
+
+			margin-bottom: 5vw;
+			border-radius: 40px;
+			background-color: $articleBackgroundColor;
+			box-shadow: 0 0 10px lightgrey;
+
+			h1 {
+				text-align: center;
+				color: black;
+			}
+		}
+	}
+}

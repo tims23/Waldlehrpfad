@@ -1,0 +1,13 @@
+@import '../defaultStyles.scss';
+
+.Test {
+	img {
+		width: 100%;
+	}
+
+	&.over {
+		width: 100vw;
+		height: 100vh;
+		background-color: red;
+	}
+}

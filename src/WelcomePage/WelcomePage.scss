@@ -1,0 +1,120 @@
+@import "../defaultStyles.scss";
+
+.WelcomePage.Component {
+	margin: 0 0;
+	height: 100vh;
+	width: 100vw;
+	overflow-y: hidden;
+	overflow-x: hidden;
+}
+
+.WelcomePage.background {
+	width: 100vw;
+	height: 100vh;
+	background-image: url(hintergrundbild.jpeg);
+	background-position: center;
+	background-size: cover;
+}
+
+.WelcomePage.shader {
+	width: 100vw;
+	height: 100vh;
+	background: rgba(0, 0, 0, 0.5);
+}
+
+.WelcomePage h1 {
+	@include font;
+	font-weight: bold;
+	font-size: 370%;
+	margin: 0 0;
+	color: $backgroundColor;
+}
+
+.WelcomePage p {
+	@include font;
+	font-weight: 200;
+	font-size: 100%;
+	letter-spacing: 10px;
+	margin: 0 0;
+	color: $articleBackgroundColor;
+}
+
+.WelcomePage.content {
+	margin-left: 5vw;
+	margin-right: 5vw;
+}
+
+.WelcomePage.spaceholder {
+	height: 20vh;
+}
+
+@keyframes WelcomePage-flow {
+	from {
+		transform: translateY(0%);
+	}
+	to {
+		transform: translateY(75%);
+	}
+}
+
+.WelcomePage#arrow1 {
+	opacity: 0;
+	animation-name: appear, WelcomePage-flow;
+}
+
+.WelcomePage#arrow3 {
+	opacity: 1;
+	animation-name: disappear, WelcomePage-flow;
+}
+
+.WelcomePage h4 {
+	font-size: 35px;
+}
+
+.WelcomePage.arrow {
+	text-align: center;
+	color: $articleBackgroundColor;
+	margin-top: 0;
+	margin-bottom: -10px;
+	animation-name: WelcomePage-flow;
+	animation-duration: 1s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+}
+
+.WelcomePage.scroller {
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 20vh;
+	height: 140px;
+	width: 30px;
+}
+
+.WelcomePage a {
+	width: 30px;
+	cursor: pointer;
+}
+
+.WelcomePage.site.scrolled {
+	z-index: 1;
+	animation: WelcomePage-flowOutTop 0.75s;
+	animation-timing-function: ease-in;
+	transform: translateY(-100%);
+}
+
+.WelcomePage.load {
+	position: absolute;
+	top: calc(50vh - 12px);
+	left: calc(50vw - 30px);
+	height: 24px;
+	width: 60px;
+}
+
+@keyframes WelcomePage-flowOutTop {
+	from {
+		transform: translateY(0);
+	}
+	to {
+		transform: translateY(-100%);
+	}
+}

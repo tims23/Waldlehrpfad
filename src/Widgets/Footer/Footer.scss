@@ -1,0 +1,137 @@
+@import '../../defaultStyles.scss';
+
+.Footer {
+	&.upper,
+	.middle,
+	.under {
+		padding: 5px 5px;
+	}
+
+	&.up:hover {
+		cursor: pointer;
+		@include scale();
+		@include appear();
+	}
+
+	hr {
+		width: calc(100vw - 40px);
+		height: 0.5px;
+		background-color: rgba($color: #ffffff, $alpha: 0.5);
+		border-width: 0;
+		margin: 0 auto;
+	}
+
+	&.clear {
+		clear: both;
+	}
+
+	&.upper {
+		background-color: black;
+		height: fit-content;
+	}
+
+	&.middle {
+		background-color: black;
+		height: fit-content;
+		p {
+			float: left;
+			color: grey;
+			margin-right: 10px;
+			margin-left: 10px;
+			@include font();
+		}
+	}
+
+	&.under {
+		p {
+			float: left;
+			color: rgba($color: #ffffff, $alpha: 0.7);
+			margin-right: 10px;
+			margin-left: 10px;
+			@include font();
+		}
+		background-color: black;
+		height: fit-content;
+	}
+
+	img {
+		float: left;
+		height: 30px;
+		margin-top: 10px;
+		margin-left: calc(50vw - 90px/2 - 28px - 6px);
+		margin-right: calc(50vw - 90px/2 - 28px - 6px);
+		opacity: 0.3;
+	}
+
+	&.up {
+		float: left;
+		height: 50px;
+		width: 28px;
+		margin: 0;
+	}
+
+	.Nature {
+		&.text {
+			width: fit-content;
+			margin-left: calc(50vw - 70px);
+		}
+
+		p {
+			font-family: 'Open Sans', sans-serif;
+			display: inline-block;
+			background-color: black;
+			color: grey;
+		}
+
+		.letter {
+			display: inline-block;
+			position: relative;
+			transform: translateZ(25px);
+			transform-origin: 50% 50% 25px;
+
+			&.out {
+				transform: rotateX(90deg);
+				transition: transform 0.32s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+			}
+
+			&.in {
+				animation: Footer-in 0.38s;
+			}
+
+			&.baybyblue {
+				color: #a9cef4;
+			}
+
+			&.sage {
+				color: #bfcc94;
+			}
+
+			&.magenta {
+				color: #bb769b;
+			}
+
+			&.belize {
+				color: #2980b9;
+			}
+
+			&.pomegranate {
+				color: #c0392b;
+			}
+
+			&.green {
+				color: #16a085;
+			}
+
+			@keyframes Footer-in {
+				from {
+					transform: rotateX(-90deg);
+					opacity: 0;
+				}
+				to {
+					transform: rotate(0deg);
+					opacity: 1;
+				}
+			}
+		}
+	}
+}

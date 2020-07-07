@@ -1,0 +1,39 @@
+@import "../../defaultStyles.scss";
+
+.DeviceOrientation {
+	&.Component {
+		z-index: 4;
+		width: 100vw;
+		height: 100vh;
+		position: absolute;
+		top: 0;
+		left: 0;
+		background-color: rgba($color: #000000, $alpha: 1);
+	}
+	&.Error {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translateX(-50%) translateY(-50%);
+		box-shadow: 1px 1px 10px rgba(128, 128, 128, $alpha: 0.7);
+
+		box-sizing: border-box;
+		border-radius: 40px;
+		text-align: center;
+		@include font;
+		font-weight: bold;
+		background-color: $articleBackgroundColor;
+		border: #fe6b8b 10px solid;
+		animation: Scanner-Error 0.5s ease-in-out both;
+		padding: 5px;
+
+		@keyframes Scanner-Error {
+			from {
+				border-width: 0px;
+			}
+			to {
+				border-width: 10px;
+			}
+		}
+	}
+}

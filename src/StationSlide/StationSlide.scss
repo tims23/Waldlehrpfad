@@ -1,0 +1,80 @@
+@import "../defaultStyles.scss";
+
+.StationSlide {
+	&.div {
+		margin-left: 50%;
+		width: calc((300px + 4vw)*3 + 30px);
+	}
+
+	&.Station {
+		float: left;
+
+		&.div {
+			overflow: hidden;
+			margin: 2vw;
+			background-color: $articleBackgroundColor;
+			opacity: 0;
+			box-shadow: 0 0 10px lightgrey;
+		}
+		height: 500px;
+		width: 300px;
+		border-radius: 40px;
+
+		&:hover &.overlay.in {
+			animation: StationSlide-slideup 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) both,
+				StationSlide-in 0.5s ease-in-out both;
+			@keyframes StationSlide-slideup {
+				from {
+					transform: translateY(0%);
+				}
+				to {
+					transform: translateY(-100%);
+				}
+			}
+		}
+
+		&.contend {
+			box-sizing: border-box;
+			padding: 4vw;
+			margin: 0;
+		}
+
+		&.overlay {
+			background-color: rgba($color: #000000, $alpha: 0.5);
+			height: 500px;
+			width: 300px;
+		}
+
+		&.in {
+			animation: StationSlide-in 0.5s ease-in-out both;
+		}
+
+		@keyframes StationSlide-in {
+			from {
+				opacity: 0.3;
+			}
+			to {
+				opacity: 1;
+			}
+		}
+
+		&.semiIn {
+			display: block;
+			opacity: 0.3;
+		}
+
+		&.Titel {
+			color: $articleTextColor;
+			font-weight: bold;
+			@include font;
+		}
+		&.Inhalt {
+			color: $articleTextColor;
+			font-weight: normal;
+			line-height: 1.8em;
+			color: grey;
+			font-size: 16px;
+			@include font;
+		}
+	}
+}

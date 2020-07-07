@@ -1,0 +1,6 @@
+@import "./defaultStyles.scss";
+
+.App {
+	@include background;
+	text-align: left;
+}

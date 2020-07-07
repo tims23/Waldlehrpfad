@@ -1,0 +1,175 @@
+@import '../../defaultStyles.scss';
+
+.Quiz {
+	button,
+	input[type=submit] {
+		height: 50px;
+		width: 130px;
+		border-radius: 6px;
+		border: 0px;
+		background: $reversedRedGradient;
+		box-shadow: 0 3px 5px 2px rgba(255, 105, 135, 0.3);
+		color: $backgroundColor;
+		font-size: xx-large;
+		@include font;
+
+		&:hover,
+		&:focus {
+			background: $redGradient;
+		}
+	}
+
+	&.repeat {
+		margin-left: calc(50% - 65px);
+	}
+
+	&.progressBar {
+		margin-top: 20px;
+		width: 100%;
+		height: 6px;
+		border-radius: 50px;
+		box-shadow: 1px 1px 5px rgba(128, 128, 128, $alpha: 0.2);
+
+		&.progress {
+			background: $redGradient;
+		}
+	}
+
+	&.Component {
+		@include flowInLeft;
+		background-color: $articleBackgroundColor;
+		padding: 6vw 6vw 6vw 6vw;
+		margin: 5vw 5vw 5vw 5vw;
+		box-shadow: 0 0 10px lightgrey;
+	}
+	&.Frage {
+		@include font;
+		margin-top: 10px;
+		margin-bottom: 10px;
+
+		float: left;
+
+		form {
+			height: 100%;
+			max-height: 100%;
+			width: 100%;
+		}
+
+		&.options {
+			padding-left: 40px;
+			padding-right: 40px;
+			float: none;
+			border-radius: 40px;
+			box-shadow: 1px 1px 5px rgba(128, 128, 128, $alpha: 0.2);
+		}
+
+		input[type=submit] {
+			margin-left: calc(50% - 65px);
+		}
+
+		input[type=radio] {
+			float: right;
+			background: $greenGradient;
+			cursor: pointer;
+
+			border-radius: 10px;
+
+			display: inline-block;
+			height: 15px;
+			width: 15px;
+			appearance: none;
+		}
+
+		input[type=radio]:checked {
+			border: none;
+		}
+
+		input[type=radio]:checked:after {
+			animation: appear 0.3s ease-in-out;
+			background-color: rgba($color: #444, $alpha: 0.5);
+			border-radius: 25px;
+			content: '';
+			display: block;
+			height: 7px;
+			left: 4px;
+			position: relative;
+			top: 4px;
+			width: 7px;
+		}
+
+		&.result {
+			box-shadow: 1px 1px 10px rgba(128, 128, 128, $alpha: 0.7);
+
+			box-sizing: border-box;
+			border-radius: 40px;
+			width: 50%;
+			margin-left: calc(25%);
+			text-align: center;
+			@include font;
+			font-weight: bold;
+			&.right {
+				border: $green 10px solid;
+				background-color: $articleBackgroundColor;
+				animation: Quiz-showResult 0.5s ease-in-out both;
+			}
+			&.wrong {
+				border: $red 10px solid;
+				background-color: $articleBackgroundColor;
+				animation: Quiz-showResult 0.5s ease-in-out both;
+			}
+			@keyframes Quiz-showResult {
+				from {
+					border-width: 0px;
+				}
+				to {
+					border-width: 10px;
+				}
+			}
+		}
+
+		@media (min-width: 700px) {
+			&.vl {
+				background: $greenGradient;
+				width: 6px;
+				height: 200px;
+				margin: 0;
+				margin-bottom: 8px;
+				margin-left: calc(5% - 3px);
+				margin-right: calc(5% - 3px);
+			}
+
+			&.questionContainer {
+				text-align: center;
+				height: 180px;
+				margin-top: 10px;
+				width: 45%;
+			}
+
+			&.answerContainer {
+				height: 180px;
+				margin-top: 10px;
+				width: calc(45% - 40px);
+			}
+		}
+		@media (max-width: 699px) {
+			&.vl {
+				background: $greenGradient;
+				height: 6px;
+				width: 80%;
+				margin-left: 10%;
+			}
+
+			&.questionContainer {
+				text-align: center;
+				height: fit-content;
+				width: 100%;
+			}
+
+			&.answerContainer {
+				height: 180px;
+				margin-top: 10px;
+				width: 100%;
+			}
+		}
+	}
+}

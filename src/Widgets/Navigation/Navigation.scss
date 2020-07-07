@@ -1,0 +1,226 @@
+@import "../../defaultStyles.scss";
+
+.Navigation {
+	&.content {
+		float: left;
+		display: none;
+
+		&.clicked {
+			display: block;
+			height: 24.2px;
+			animation: roll-out 0.75s 0.5s linear both;
+		}
+	}
+
+	@keyframes roll-out {
+		from {
+			width: 0px;
+		}
+		to {
+			width: 97.5px;
+		}
+	}
+
+	&.icon {
+		float: left;
+
+		&.clicked {
+			&:hover {
+				transform: scale(1.1);
+			}
+			background-color: rgba($color: #000000, $alpha: 0.3);
+			border-radius: 50px;
+			&.first {
+				animation: show-content 0.25s 0.55s cubic-bezier(.57, .4, .7, -0.72) both;
+				background-image: url("./qr.svg");
+				background-position: center;
+				background-repeat: no-repeat;
+				background-size: 70% 70%;
+			}
+
+			&.second {
+				animation: show-content 0.25s 0.8s cubic-bezier(.57, .4, .7, -0.72) both;
+				background-image: url("./home.svg");
+				background-position: center;
+				background-repeat: no-repeat;
+				background-size: 70% 70%;
+			}
+			&.last {
+				animation: show-content 0.25s 1.05s cubic-bezier(.57, .4, .7, -0.72) both;
+				text-align: center;
+				p {
+					display: block;
+					color: black;
+					width: 27.5px;
+					height: 24.2px;
+					margin: 0;
+					animation: appear 0s 1.3s both;
+				}
+			}
+		}
+	}
+
+	@keyframes show-content {
+		from {
+			width: 0px;
+			height: 0px;
+			margin-left: 16.25px;
+			margin-right: 0px;
+			margin-top: 12.1px;
+			margin-bottom: 12.1px;
+		}
+		50% {
+			width: 0px;
+			height: 0px;
+		}
+		to {
+			width: 27.5px;
+			height: 24.2px;
+			margin-right: 2.5px;
+			margin-top: 0px;
+			margin-bottom: 0px;
+		}
+	}
+
+	&.navButton {
+		box-sizing: border-box;
+		z-index: 4;
+
+		&.outer {
+			position: fixed;
+			width: fit-content;
+			height: fit-content;
+			top: 20px;
+			left: 50%;
+			transform: translate(-50%);
+			border: 5px $articleBackgroundColor solid;
+			border-radius: 50px;
+			padding: 1.5px;
+			box-shadow: 5px 5px 10px rgba(128, 128, 128, $alpha: 0.5);
+
+			&.clicked {
+				animation: pop-out 0.5s cubic-bezier(.57, .4, .7, -0.72) both;
+			}
+		}
+
+		@keyframes pop-out {
+			from {
+				top: 20px;
+				border-width: 5px;
+				padding: 1.5px;
+			}
+			50% {
+				background-color: rgba($articleBackgroundColor, $alpha: 1.0);
+				top: 26.5px;
+				padding: 0px;
+				border-width: 0px;
+			}
+			to {
+				top: 21.5px;
+				padding: 5px;
+				border-width: 0px;
+				background-color: rgba($articleBackgroundColor, $alpha: 1.0);
+			}
+		}
+
+		&.inner {
+			float: right;
+			padding: 2px;
+			width: fit-content;
+			border-radius: 50px;
+			background-color: rgba($articleBackgroundColor, $alpha: 1);
+
+			&:hover {
+				transform: scale(1.1);
+			}
+
+			&.clicked {
+				animation: pop-in 0.5s cubic-bezier(.57, .4, .7, -0.72) both, rotate 0.75s linear 0.5s;
+			}
+
+			&.unClicked {
+				animation: pop-in 5s reverse;
+			}
+		}
+
+		@keyframes rotate {
+			from {
+				transform: rotateZ(0deg);
+			}
+			to {
+				transform: rotateZ(180deg);
+			}
+		}
+
+		@keyframes pop-in {
+			from {
+				width: 25px;
+				height: 22px;
+				border: rgba($color: #000000, $alpha: 0.1) 0px solid;
+				background-color: rgba($articleBackgroundColor, $alpha: 1);
+				margin-left: 0px;
+				margin-right: 0px;
+			}
+			99% {
+				margin-left: 0px;
+				margin-right: 0px;
+			}
+			to {
+				margin-left: 2.5px;
+				margin-right: 2.5px;
+				width: 27.5px;
+				height: 24.2px;
+				background-color: rgba($articleBackgroundColor, $alpha: 1);
+			}
+		}
+
+		&.burger {
+			span {
+				display: block;
+				width: 15px;
+				height: 2px;
+				margin: 3px;
+				background-color: grey;
+			}
+
+			&.clicked {
+				&.middle {
+					animation: disappear 0.25s linear;
+					opacity: 0;
+				}
+				&.upper {
+					@keyframes upper-rotate {
+						from {
+							transform: translateY(0px) rotateZ(0deg);
+						}
+						50% {
+							transform: translateY(5px) rotateZ(0deg);
+						}
+						to {
+							transform: translateY(5px) rotateZ(45deg);
+						}
+					}
+					animation: upper-rotate 0.5s linear;
+					transform: translateY(5px) rotateZ(45deg);
+				}
+
+				&.under {
+					@keyframes under-rotate {
+						from {
+							transform: translateY(0px) rotateZ(0deg);
+						}
+
+						50% {
+							transform: translateY(-5px) rotateZ(0deg);
+						}
+						to {
+							transform: translateY(-5px) rotateZ(-45deg);
+						}
+					}
+					animation: under-rotate 0.5s linear;
+					transform: translateY(-5px) rotateZ(-45deg);
+				}
+			}
+		}
+	}
+}

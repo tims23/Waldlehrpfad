@@ -1,0 +1,206 @@
+@import "../defaultStyles.scss";
+
+.FrontPage {
+	polygon {
+		fill: #2d2d34;
+		box-shadow: 0 0 10px lightgrey;
+	}
+
+	.dark {
+		padding-top: 4vw;
+		padding-bottom: 4vw;
+		background-color: #2d2d34;
+	}
+	&.Artikel {
+		&.Funktion {
+			background-color: $articleBackgroundColor;
+			padding: 6vw 6vw 6vw 6vw;
+			margin: 5vw 5vw 5vw 5vw;
+			box-shadow: 0 0 10px lightgrey;
+		}
+		&.Titel {
+			color: $articleTextColor;
+			font-weight: bold;
+			@include font;
+		}
+		&.switch {
+			height: 25px;
+			width: 100px;
+			border-radius: 6px;
+			border: 0px;
+			background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+			color: black;
+			font-size: x-small;
+			@include font;
+			box-shadow: 0 0 10px lightgrey;
+			margin-left: 50%;
+			transform: translateX(-50%);
+
+			&:hover,
+			&:focus {
+				background: linear-gradient(45deg, #ff8e53 30%, #fe6b8b 90%);
+			}
+
+			&.wrapped {
+				&:hover,
+				&:focus {
+					background-image: linear-gradient(to bottom, #43e97b 0%, #38f9d7 100%);
+				}
+			}
+		}
+		&.Inhalt {
+			&.wrapper {
+				margin-top: 16px;
+				margin-bottom: 16px;
+				text-overflow: clip;
+				overflow-y: hidden;
+				&.wrapped {
+					max-height: 500px;
+				}
+			}
+			p {
+				margin: 0px;
+			}
+			color: $articleTextColor;
+			font-weight: normal;
+			line-height: 1.8em;
+			color: grey;
+			font-size: 16px;
+			@include font;
+		}
+	}
+
+	&.HerbariumArtikel {
+		&.Funktion {
+			background-color: $articleBackgroundColor;
+			padding: 6vw 6vw 6vw 6vw;
+			margin: 5vw 5vw 5vw 5vw;
+			box-shadow: 0 0 10px lightgrey;
+		}
+
+		&.contend {
+			float: left;
+			height: 230px;
+
+			width: calc(300px + 2vw);
+		}
+
+		&.overlay {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0px;
+			left: 0px;
+			border-radius: 40px;
+			background-color: rgba($color: #000000, $alpha: 0.7);
+		}
+
+		img {
+			height: 100%;
+		}
+
+		@media (min-width: 700px) {
+			&.referral {
+				width: 40%;
+				height: 230px;
+			}
+			&.vl {
+				width: 3px;
+				height: 200px;
+				margin: 0;
+				margin-bottom: 8px;
+			}
+			button {
+				height: 60px;
+				width: 100px;
+				font-size: large;
+			}
+		}
+
+		@media (max-width: 699px) {
+			&.vl {
+				height: 3px;
+				width: 80%;
+				margin-left: 10%;
+			}
+			&.referral {
+				height: 80px;
+				width: 100%;
+			}
+
+			button {
+				height: 40px;
+				width: 80px;
+				font-size: small;
+			}
+		}
+		&.vl {
+			background: rgba($color: #000000, $alpha: 0.5);
+			margin-top: 20px;
+			float: left;
+		}
+
+		&.referral {
+			display: grid;
+			float: left;
+		}
+
+		button {
+			align-self: center;
+			margin-left: auto;
+			margin-right: auto;
+			border-radius: 6px;
+			border: 0px;
+			background: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+			box-shadow: 0 0 10px lightgrey;
+			@include font;
+
+			&:hover,
+			&:focus {
+				color: $articleBackgroundColor;
+				background: $reversedRedGradient;
+			}
+		}
+
+		&.first,
+		&.second,
+		&.last {
+			opacity: 0;
+			position: relative;
+			border-radius: 40px;
+			box-shadow: 0 0 10px lightgrey;
+			background-color: $articleBackgroundColor;
+
+			background-color: $backgroundColor;
+			width: 150px;
+			height: 200px;
+		}
+
+		&.first {
+			top: 10px;
+
+			left: 10px;
+			&.in {
+				animation: appear 1s ease-in-out both, flowInLeft 1s ease-in-out;
+			}
+		}
+
+		&.second {
+			top: -180px;
+
+			left: calc(10px + 50px);
+			&.in {
+				animation: appear 1s 0.3s ease-in-out both, flowInLeft 1s 0.3s ease-in-out;
+			}
+		}
+
+		&.last {
+			top: -370px;
+
+			left: calc(10px + 100px);
+			&.in {
+				animation: appear 1s 0.6s ease-in-out both, flowInLeft 1s 0.6s ease-in-out;
+			}
+		}
+	}
+}
