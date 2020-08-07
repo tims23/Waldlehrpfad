@@ -11,15 +11,16 @@ import GeoTracker from './Funktionen/GeoTracker';
 import Navigation from './Widgets/Navigation/Navigation.js';
 import DeviceOrientation from './Funktionen/DeviceOrientation/DeviceOrientation';
 import Herbarium from './Herbarium/Herbarium';
+import AddToHome from './Widgets/AddToHome/AddToHome';
 
 class App extends React.Component {
 	render() {
 		return (
 			<div className="App">
+				<AddToHome />
 				<DeviceOrientation>
 					<Router>
 						<Navigation />
-
 						<Switch>
 							<Route exact path="/FrontPage">
 								<FrontPage />

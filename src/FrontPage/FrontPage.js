@@ -31,34 +31,17 @@ class FrontPage extends React.Component {
 		super(props);
 
 		this.top = React.createRef();
-		this.state = {
-			title: 'init'
-		};
-	}
-
-	componentDidMount() {
-		const titleRef = firebase.database().ref('/roor');
-		titleRef.
-		console.log(titleRef);
-
-		titleRef.on('value', (snapshot) => {
-			this.setState({
-				title: snapshot.val()
-			});
-		});
 	}
 
 	render() {
 		return (
-			<WelcomePopup>
-				<div ref={this.top} id="section2" className="FrontPage Component">
-					<SwipeableLink to="../Scanner" direction="right" auth deviceType="mobile">
-						<NavigationWave />
-						<h1>{this.state.title}</h1>
-						<AnimateInScreen className="flowInLeft" delay={200}>
-							<Artikel
-								titel="Worum geht es in unserem Projekt?"
-								inhalt="
+			<div ref={this.top} id="section2" className="FrontPage Component">
+				<SwipeableLink to="../Scanner" direction="right" auth deviceType="mobile">
+					<NavigationWave />
+					<AnimateInScreen className="flowInLeft" delay={200}>
+						<Artikel
+							titel="Worum geht es in unserem Projekt?"
+							inhalt="
 								Die Bekämpfung des Klimawandels, die Sicherung und der Erhalt unserer Umwelt sind die
 								mitunter größten Aufgaben unserer Zeit. Die Relevanz dieser Aufgaben ist unermesslich,
 								zumal die Zukunft unserer Erde und die damit verbundene Biodiversität davon abhängt.
@@ -76,41 +59,41 @@ class FrontPage extends React.Component {
 								um weitgreifende Veränderungen im großen Stil herbeiführen zu können. Aber heißt das, dass 
 								wir als Einzelpersonen nicht auch mithelfen können und sollten? 
 							"
-							/>
+						/>
+					</AnimateInScreen>
+					<svg
+						style={{
+							marginBottom: '-10px'
+						}}
+						viewBox="0 0 311.75 17.08"
+					>
+						<defs />
+						<polygon class="cls-4" points="311.75 16.98 0 17.08 0 7.69 311.71 0 311.75 16.98" />
+					</svg>
+					<div className="dark">
+						<AnimateInScreen className="flowInRight" delay={200}>
+							<StationSlide />
+							<div style={{clear: 'both'}} />
 						</AnimateInScreen>
-						<svg
-							style={{
-								marginBottom: '-10px'
-							}}
-							viewBox="0 0 311.75 17.08"
-						>
-							<defs />
-							<polygon class="cls-4" points="311.75 16.98 0 17.08 0 7.69 311.71 0 311.75 16.98" />
-						</svg>
-						<div className="dark">
-							<AnimateInScreen className="flowInRight" delay={200}>
-								<StationSlide />
-								<div style={{clear: 'both'}} />
-							</AnimateInScreen>
-						</div>
-						<svg
-							style={{
-								marginTop: '-40px'
-							}}
-							viewBox="0 0 311.75 17.08"
-						>
-							<defs />
-							<polygon
-								style={{fill: '#f9f5ff'}}
-								class="cls-4"
-								points="311.75 16.98 0 17.08 0 7.69 311.71 0 311.75 16.98"
-							/>
-						</svg>
+					</div>
+					<svg
+						style={{
+							marginTop: '-40px'
+						}}
+						viewBox="0 0 311.75 17.08"
+					>
+						<defs />
+						<polygon
+							style={{fill: '#f9f5ff'}}
+							class="cls-4"
+							points="311.75 16.98 0 17.08 0 7.69 311.71 0 311.75 16.98"
+						/>
+					</svg>
 
-						<AnimateInScreen className="flowInLeft" delay={200}>
-							<Artikel
-								titel="Unsere Ziele"
-								inhalt="
+					<AnimateInScreen className="flowInLeft" delay={200}>
+						<Artikel
+							titel="Unsere Ziele"
+							inhalt="
 								Unsere Schule ist der Meinung, dass jeder einen Teil leisten kann. Jeder
 								einzelne kann sich kleine Ziele setzen und dem Klimawandel entgegenwirken. Deshalb
 								haben wir uns dazu entschieden Nachhaltigkeit in umfassender Weise in unsere Schulentwicklung
@@ -123,14 +106,14 @@ class FrontPage extends React.Component {
 								verbundene Notwendigkeit besonderer Umweltverträglichkeit, schon seit Jahren andere Lösungen gesucht
 								werden, bietet dieser eine gute Möglichkeit hierzu.  
 							"
-							/>
-						</AnimateInScreen>
-						<HerbariumArtikel />
+						/>
+					</AnimateInScreen>
+					<HerbariumArtikel />
 
-						<AnimateInScreen className="flowInLeft" delay={200}>
-							<Artikel
-								titel="Unsere Umsetzung"
-								inhalt="
+					<AnimateInScreen className="flowInLeft" delay={200}>
+						<Artikel
+							titel="Unsere Umsetzung"
+							inhalt="
 								Beginnend mit einer umfassenden Bestandsaufnahme des Waldes unter Zuhilfenahme
 								des stiftseigenen Materials sollen mehrere Stationen zu einzelnen Unterthemen,
 								wie zum Beispiel dem Borkenkäfer, von Schüler*innen der elften Klasse im Rahmen
@@ -141,16 +124,15 @@ class FrontPage extends React.Component {
 								betragen und ungefähr sieben Stationen umfassen, wobei einige Zuwege verbessert
 								und entsprechend aufbereitet werden müssen.
 							"
-							/>
-						</AnimateInScreen>
+						/>
+					</AnimateInScreen>
 
-						<AnimateInScreen className="flowInLeft" delay={200}>
-							<Quiz />
-						</AnimateInScreen>
-						<Footer href={this.top} />
-					</SwipeableLink>
-				</div>
-			</WelcomePopup>
+					<AnimateInScreen className="flowInLeft" delay={200}>
+						<Quiz />
+					</AnimateInScreen>
+					<Footer href={this.top} />
+				</SwipeableLink>
+			</div>
 		);
 	}
 }

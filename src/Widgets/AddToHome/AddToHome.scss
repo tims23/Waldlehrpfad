@@ -1,0 +1,44 @@
+@import '../../defaultStyles.scss';
+
+.AddToHome {
+	z-index: 7;
+	background-color: $articleBackgroundColor;
+	padding: 3%;
+	padding-left: 5%;
+	padding-right: 5%;
+	border-top-left-radius: 25px;
+	border-top-right-radius: 25px;
+	position: fixed;
+	bottom: 0px;
+	box-shadow: 0 0 10px lightgrey;
+
+	h2 {
+		text-align: left;
+	}
+
+	button {
+		margin-left: 50%;
+		transform: translateX(-50%);
+		height: 30px;
+		width: 80px;
+		border-radius: 6px;
+		border: 0px;
+		background: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+		box-shadow: 0 0 10px lightgrey;
+		color: black;
+		font-size: small;
+		@include font;
+
+		&:hover,
+		&:focus {
+			color: $articleBackgroundColor;
+			background: $reversedRedGradient;
+		}
+	}
+
+	@include flowInLeft();
+
+	&.out {
+		@include disappear();
+	}
+}
