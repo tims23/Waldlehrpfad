@@ -70,12 +70,12 @@ export class GeoTracker extends Component {
 				for (let index = 0; index < this.desiredLocation.length; index++) {
 					const desiredLocation = this.desiredLocation[index];
 					var distance = Math.sqrt(
-						(result.coords.latitude * 111111 - desiredLocation.latitude * 111111) *
-							(result.coords.latitude * 111111 - desiredLocation.latitude * 111111) +
-							(Math.cos(result.coords.longitude) * 111111 -
-								Math.cos(desiredLocation.longitude) * 111111) *
-								(Math.cos(result.coords.longitude) * 111111 -
-									Math.cos(desiredLocation.longitude) * 111111)
+						(result.coords.latitude * 111300 - desiredLocation.latitude * 111300) *
+							(result.coords.latitude * 111300 - desiredLocation.latitude * 111300) +
+							(Math.cos(result.coords.longitude) * 111300 -
+								Math.cos(desiredLocation.longitude) * 111300) *
+								(Math.cos(result.coords.longitude) * 111300 -
+									Math.cos(desiredLocation.longitude) * 111300)
 					);
 					console.log(distance);
 					if (distance <= this.options.distance && this.state.lastReferral !== desiredLocation.name) {

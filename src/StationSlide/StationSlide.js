@@ -1,5 +1,9 @@
 import React, {Component} from 'react';
 import './StationSlide.scss';
+import baumBackground from "./baum.jpg";
+import background from "./baum2.jpg";
+import {Link} from 'react-router-dom';
+
 
 export default class StationSlide extends Component {
 	constructor(props) {
@@ -82,11 +86,16 @@ export default class StationSlide extends Component {
 				>
 					<Station
 						stationName={1}
+						stationTitle="Rinde"
+						condend="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
 						currentStation={this.state.currentStation}
 						handleClick={this.state.currentStation === 2 ? this.handleLastStation : () => {}}
+						pic={baumBackground}
 					/>
 					<Station
 						stationName={2}
+						stationTitle="Borkenkäfer"
+						condend="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
 						currentStation={this.state.currentStation}
 						handleClick={
 							this.state.currentStation === 3 ? (
@@ -97,6 +106,7 @@ export default class StationSlide extends Component {
 								() => {}
 							)
 						}
+						pic={background}
 					/>
 				</div>
 			</div>
@@ -146,12 +156,16 @@ export class Station extends React.Component {
 		return (
 			<div
 				className={this.state.classList.general + this.state.classList.visible + ' div'}
-				onClick={this.props.handleClick}
+				onClick={this.props.handleClick} style={{backgroundImage: `url('${this.props.pic}')`}}
 			>
 				<div className={this.state.classList.general + this.state.classList.visible + ' contend'}>
 					<p>Station {this.props.stationName}</p>
 				</div>
-				<div className={this.state.classList.general + this.state.classList.visible + ' overlay'} />
+				<Link to={"/Station".concat(this.props.stationName)}>
+				<div className={this.state.classList.general + this.state.classList.visible + ' overlay'} >
+					<h1>Station {this.props.stationTitle}</h1>
+					<p>{this.props.condend}</p>
+				</div></Link>
 			</div>
 		);
 	}

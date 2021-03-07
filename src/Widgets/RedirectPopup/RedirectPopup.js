@@ -30,7 +30,7 @@ export class RedirectPopup extends Component {
 	}
 
 	componentDidUpdate() {
-		const possibleSites = ['Station1', 'Station2', 'WelcomePage', 'FrontPage', 'Zuhause'];
+		const possibleSites = ['Station1', 'Station2', 'WelcomePage', 'FrontPage', 'Zuhause', 'Herbarium', 'Herbarium/Birke', 'Herbarium/Buche'];
 
 		if (this.props.referral !== this.state.lastReferral && this.props.referral) {
 			if (this.state.timer !== null) {

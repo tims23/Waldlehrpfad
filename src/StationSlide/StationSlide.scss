@@ -13,6 +13,8 @@
 			overflow: hidden;
 			margin: 2vw;
 			background-color: $articleBackgroundColor;
+			background-size: cover;
+			background-position: -400px;
 			opacity: 0;
 			box-shadow: 0 0 10px lightgrey;
 		}
@@ -37,12 +39,33 @@
 			box-sizing: border-box;
 			padding: 4vw;
 			margin: 0;
+			p {
+				text-align: center;
+				margin-top: 70%;
+				font-weight: bold;
+				font-size: xx-large;
+				background-color: $articleBackgroundColor;
+				opacity: 0.4;
+				box-shadow: 0 0 10px lightgrey;
+				color: $articleTextColor;
+				border-radius: 40px;
+			}
 		}
 
 		&.overlay {
 			background-color: rgba($color: #000000, $alpha: 0.5);
 			height: 500px;
 			width: 300px;
+			h1 {
+				color: $articleBackgroundColor;
+				text-align: center;
+			}
+			p {
+				color: $articleBackgroundColor;
+				margin-left: 5%;
+				margin-right: 5%;
+				text-align: justify;
+			}
 		}
 
 		&.in {

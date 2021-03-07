@@ -6,7 +6,27 @@ import AnimateInScreen from '../Funktionen/AnimateInScreen';
 const items = [
 	{
 		name: 'Birke',
-		information: [['Höchstalter', '50 Jahre']]
+		image: require('./Images/' + "Birke.png"),
+		information: [
+			['Höchstalter', '50 Jahre'],
+			["Lateinischer Name", "Betula"],
+			["Arten","ca. 50"], 
+			["Verbreitungsgebiet", "Europa, Asien, Nordamerika"],
+			["Blütezeit", "März-Mai"],
+			["Höhe", "20-30 Meter"]
+		]
+	},
+	{
+		name: "Buche",
+		image: require('./Images/' + "Buche.png"),
+		information: [
+			['Höchstalter', '300 Jahre'],
+			["Lateinischer Name", "Fagus sylvatica"],
+			["Arten","ca. 250"], 
+			["Verbreitungsgebiet", "Europa"],
+			["Blütezeit", "April-Mai"],
+			["Höhe", "30-40 Meter"]
+		]
 	}
 ];
 
@@ -22,7 +42,7 @@ export class Herbarium extends Component {
 				{items.map((item) => {
 					return (
 						<AnimateInScreen className="flowInLeft">
-							<Element image="birke.png" name={item.name} />
+							<Element image={item.image} name={item.name} />
 						</AnimateInScreen>
 					);
 				})}
@@ -39,10 +59,10 @@ export class Element extends React.Component {
 				<div className="Herbarium Element Container">
 					<div className="Herbarium Element inner">
 						<div class="Herbarium Element front">
-							<img src={require('./Images/' + this.props.image)} />
+							<img src={this.props.image} />
 						</div>
 						<div class="Herbarium Element back">
-							<img src={require('./Images/' + this.props.image)} />
+							<img src={this.props.image} />
 							<div className="Herbarium Element overlay">
 								<h1>{this.props.name}</h1>
 								<hr style={{backgroundColor: 'white'}} />
@@ -89,8 +109,7 @@ function DetailView() {
 				{element.information.map((information) => {
 					return (
 						<div>
-							<p>{information[0]}: </p>
-							<p>{information[1]}</p>
+							<p><span style={{fontWeight: "bold"}}>{information[0]}:</span> {information[1]}</p>
 						</div>
 					);
 				})}
